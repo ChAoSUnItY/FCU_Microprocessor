@@ -5,7 +5,7 @@
 #include "Scankey.h"
 
 const char number[7] = "1109998";
-volatile uint32_t* leds[4] = {&PC12, &PC13, &PC14, &PC15};
+volatile uint32_t* leds[4] = {&PC15, &PC14, &PC13, &PC12};
 
 void UpdateAllLEDs(uint32_t toggle) {
 	for (uint32_t i = 0; i < 4; i++)
@@ -26,6 +26,11 @@ void Init_GPIO(void) {
 }
 
 void SetLEDs(char digit) {
+	if (digit == '0') {
+		UpdateAllLEDs(1);
+		return;
+	}
+	
 	for (uint32_t i = 0; i < 4; i++)
 		*(leds[i]) = ~((digit >> i) & 1);
 }

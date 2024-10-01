@@ -1,4 +1,4 @@
-#line 1 "..\\..\\..\\..\\Downloads\\Nu-LB-NUC140_BSP3.00.004_v1.4.5\\Nu-LB-NUC140_BSP3.00.004_v1.4.5\\Library\\Nu-LB-NUC140\\Source\\Scankey.c"
+#line 1 "..\\Library\\Nu-LB-NUC140\\Source\\Scankey.c"
  
  
  
@@ -903,7 +903,7 @@ extern __declspec(__nothrow) void __use_no_semihosting(void);
 
  
 
-#line 7 "..\\..\\..\\..\\Downloads\\Nu-LB-NUC140_BSP3.00.004_v1.4.5\\Nu-LB-NUC140_BSP3.00.004_v1.4.5\\Library\\Nu-LB-NUC140\\Source\\Scankey.c"
+#line 7 "..\\Library\\Nu-LB-NUC140\\Source\\Scankey.c"
 #line 1 "..\\Library\\Device\\Nuvoton\\NUC100Series\\Include\\NUC100Series.h"
  
 
@@ -20325,8 +20325,8 @@ void ACMP_Close(ACMP_T *, uint32_t u32ChNum);
 
 
 
-#line 8 "..\\..\\..\\..\\Downloads\\Nu-LB-NUC140_BSP3.00.004_v1.4.5\\Nu-LB-NUC140_BSP3.00.004_v1.4.5\\Library\\Nu-LB-NUC140\\Source\\Scankey.c"
-#line 9 "..\\..\\..\\..\\Downloads\\Nu-LB-NUC140_BSP3.00.004_v1.4.5\\Nu-LB-NUC140_BSP3.00.004_v1.4.5\\Library\\Nu-LB-NUC140\\Source\\Scankey.c"
+#line 8 "..\\Library\\Nu-LB-NUC140\\Source\\Scankey.c"
+#line 9 "..\\Library\\Nu-LB-NUC140\\Source\\Scankey.c"
 #line 1 "..\\Library\\Nu-LB-NUC140\\Include\\Scankey.h"
 
 
@@ -20337,7 +20337,7 @@ uint8_t ScanKey(void);
 
 
 
-#line 10 "..\\..\\..\\..\\Downloads\\Nu-LB-NUC140_BSP3.00.004_v1.4.5\\Nu-LB-NUC140_BSP3.00.004_v1.4.5\\Library\\Nu-LB-NUC140\\Source\\Scankey.c"
+#line 10 "..\\Library\\Nu-LB-NUC140\\Source\\Scankey.c"
 #line 1 "..\\Library\\Nu-LB-NUC140\\Include\\SYS_init.h"
 
 
@@ -20707,7 +20707,7 @@ uint8_t ScanKey(void);
 
 extern void SYS_Init(void);
 
-#line 11 "..\\..\\..\\..\\Downloads\\Nu-LB-NUC140_BSP3.00.004_v1.4.5\\Nu-LB-NUC140_BSP3.00.004_v1.4.5\\Library\\Nu-LB-NUC140\\Source\\Scankey.c"
+#line 11 "..\\Library\\Nu-LB-NUC140\\Source\\Scankey.c"
 
 void delay(void)
 {

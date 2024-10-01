@@ -1,4 +1,4 @@
-.\obj\gpio.o: ..\..\..\..\Downloads\Nu-LB-NUC140_BSP3.00.004_v1.4.5\Nu-LB-NUC140_BSP3.00.004_v1.4.5\Library\StdDriver\src\gpio.c
+.\obj\gpio.o: ..\Library\StdDriver\src\gpio.c
 .\obj\gpio.o: ..\Library\Device\Nuvoton\NUC100Series\Include\NUC100Series.h
 .\obj\gpio.o: ..\Library\CMSIS\Include\core_cm0.h
 .\obj\gpio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

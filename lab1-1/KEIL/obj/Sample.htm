@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\obj\Sample.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\obj\Sample.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sun Sep 22 18:13:08 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Sep 24 15:41:23 2024
 <BR><P>
 <H3>Maximum Stack Usage =         84 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -278,8 +278,8 @@ Global Symbols
 <P><STRONG><a name="[34]"></a>GPIO_SetMode</STRONG> (Thumb, 40 bytes, Stack size 20 bytes, gpio.o(i.GPIO_SetMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = GPIO_SetMode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OpenKeyPad
-<LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_GPIO
+<BR>[Called By]<UL><LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_GPIO
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OpenKeyPad
 </UL>
 
 <P><STRONG><a name="[33]"></a>Init_GPIO</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, main.o(i.Init_GPIO))
@@ -309,12 +309,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[39]"></a>ScanKey</STRONG> (Thumb, 136 bytes, Stack size 0 bytes, scankey.o(i.ScanKey))
+<P><STRONG><a name="[3a]"></a>ScanKey</STRONG> (Thumb, 136 bytes, Stack size 0 bytes, scankey.o(i.ScanKey))
 <BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[3a]"></a>SetLEDs</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, main.o(i.SetLEDs))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SetLEDs
+<P><STRONG><a name="[39]"></a>SetLEDs</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, main.o(i.SetLEDs))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SetLEDs &rArr; UpdateAllLEDs
+</UL>
+<BR>[Calls]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UpdateAllLEDs
 </UL>
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -334,6 +336,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UpdateAllLEDs
 </UL>
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetLEDs
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_GPIO
 </UL>
 
@@ -346,12 +349,12 @@ Global Symbols
 <P><STRONG><a name="[26]"></a>main</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = main &rArr; SYS_Init &rArr; CLK_SetCoreClock &rArr; CLK_EnablePLL &rArr; __aeabi_uidivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ScanKey
-<LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Init
-<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OpenKeyPad
+<BR>[Calls]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Init
 <LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UpdateAllLEDs
-<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetLEDs
+<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetLEDs
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_GPIO
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ScanKey
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OpenKeyPad
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL><P>

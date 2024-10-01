@@ -442,7 +442,12 @@
             <File>
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\Downloads\Nu-LB-NUC140_BSP3.00.004_v1.4.5\Nu-LB-NUC140_BSP3.00.004_v1.4.5\Library\StdDriver\src\gpio.c</FilePath>
+              <FilePath>..\Library\StdDriver\src\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>Scankey.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Library\Nu-LB-NUC140\Source\Scankey.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -458,11 +463,6 @@
               <FileName>SYS_init.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Library\Nu-LB-NUC140\Source\SYS_init.c</FilePath>
-            </File>
-            <File>
-              <FileName>Scankey.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\Downloads\Nu-LB-NUC140_BSP3.00.004_v1.4.5\Nu-LB-NUC140_BSP3.00.004_v1.4.5\Library\Nu-LB-NUC140\Source\Scankey.c</FilePath>
             </File>
           </Files>
         </Group>

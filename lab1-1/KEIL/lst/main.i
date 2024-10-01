@@ -20712,7 +20712,7 @@ uint8_t ScanKey(void);
 #line 6 "..\\main.c"
 
 const char number[7] = "1109998";
-volatile uint32_t* leds[4] = {&(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((12)<<2)))), &(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((13)<<2)))), &(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((14)<<2)))), &(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((15)<<2))))};
+volatile uint32_t* leds[4] = {&(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((15)<<2)))), &(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((14)<<2)))), &(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((13)<<2)))), &(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((12)<<2))))};
 
 void UpdateAllLEDs(uint32_t toggle) {
 	for (uint32_t i = 0; i < 4; i++)
@@ -20733,6 +20733,11 @@ void Init_GPIO(void) {
 }
 
 void SetLEDs(char digit) {
+	if (digit == '0') {
+		UpdateAllLEDs(1);
+		return;
+	}
+	
 	for (uint32_t i = 0; i < 4; i++)
 		*(leds[i]) = ~((digit >> i) & 1);
 }

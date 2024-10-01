@@ -4,7 +4,7 @@
 #include "SYS_init.h"
 #include "Scankey.h"
 
-volatile uint32_t* leds[4] = {&PC12, &PC13, &PC14, &PC15};
+volatile uint32_t* leds[4] = {&PC15, &PC14, &PC13, &PC12};
 
 void UpdateAllLEDs(uint32_t toggle) {
 	for (uint32_t i = 0; i < 4; i++)

@@ -1,4 +1,4 @@
-.\obj\scankey.o: ..\..\..\..\Downloads\Nu-LB-NUC140_BSP3.00.004_v1.4.5\Nu-LB-NUC140_BSP3.00.004_v1.4.5\Library\Nu-LB-NUC140\Source\Scankey.c
+.\obj\scankey.o: ..\Library\Nu-LB-NUC140\Source\Scankey.c
 .\obj\scankey.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\obj\scankey.o: ..\Library\Device\Nuvoton\NUC100Series\Include\NUC100Series.h
 .\obj\scankey.o: ..\Library\CMSIS\Include\core_cm0.h
