@@ -21880,19 +21880,22 @@ extern void ShowSevenSegment(uint8_t no, uint8_t number);
 extern void CloseSevenSegment(void);
 #line 9 "..\\main.c"
 
-volatile uint32_t* leds[4] = {&(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((15)<<2)))), &(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((14)<<2)))), &(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((13)<<2)))), &(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((12)<<2))))};
+volatile uint32_t *leds[4] = {&(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((15)<<2)))), &(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((14)<<2)))), &(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((13)<<2)))), &(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((12)<<2))))};
 
-void UpdateAllLEDs(uint32_t toggle) {
+void UpdateAllLEDs(uint32_t toggle)
+{
 	for (uint32_t i = 0; i < 4; i++)
 		*(leds[i]) = !toggle;
 }
 
-void UpdateLEDs(uint32_t pos) {
+void UpdateLEDs(uint32_t pos)
+{
 	for (uint32_t i = 0; i < 4; i++)
 		*(leds[i]) = pos == i ? 0 : 1;
 }
 
-void Init_GPIO(void) {
+void Init_GPIO(void)
+{
 	GPIO_SetMode(((GPIO_T *) (((( uint32_t)0x50000000) + 0x4000) + 0x0080)), 0x00001000, 0x1UL);
 	GPIO_SetMode(((GPIO_T *) (((( uint32_t)0x50000000) + 0x4000) + 0x0080)), 0x00002000, 0x1UL);
 	GPIO_SetMode(((GPIO_T *) (((( uint32_t)0x50000000) + 0x4000) + 0x0080)), 0x00004000, 0x1UL);
@@ -21900,13 +21903,16 @@ void Init_GPIO(void) {
 	UpdateAllLEDs(0);
 }
 
-void SetLEDs(char digit) {
+void SetLEDs(char digit)
+{
 	for (uint32_t i = 0; i < 4; i++)
 		*(leds[i]) = ~((digit >> i) & 1);
 }
 
-void SetSevenSegments(uint32_t num) {
-	for (int i = 0; i < 4; i++) {
+void SetSevenSegments(uint32_t num)
+{
+	for (int i = 0; i < 4; i++)
+	{
 		CloseSevenSegment();
 		ShowSevenSegment(i, num % 10);
 		CLK_SysTickDelay(5000);
@@ -21914,97 +21920,113 @@ void SetSevenSegments(uint32_t num) {
 	}
 }
 
-void KeyPadRisingEdge(void(*func)(uint32_t)) {
+void KeyPadRisingEdge(void (*func)(uint32_t))
+{
 	static uint32_t last_state = 0;
 	uint32_t read1 = ScanKey();
 
-	if (last_state != read1) {
+	if (last_state != read1)
+	{
 		
 		CLK_SysTickDelay(25000);
 
 		uint32_t read2 = ScanKey();
 
-		if (read2 == read1) {
+		if (read2 == read1)
+		{
 			last_state = read2;
 		}
 
-		if (last_state) {
+		if (last_state)
+		{
 			func(last_state);
 		}
 	}
 }
 
-typedef struct Queue_t {
+typedef struct Queue_t
+{
 	uint32_t numbers[3];
 	size_t len;
 } Queue;
 
-void PushQueue(Queue* queue, uint32_t num) {
+void PushQueue(Queue *queue, uint32_t num)
+{
 	for (size_t i = 2; i >= 1; i--)
 		queue->numbers[i] = queue->numbers[i - 1];
-	
+
 	queue->numbers[0] = num;
 
 	if (queue->len != 3)
 		queue->len++;
 }
 
-void PopFrontQueue(Queue* queue) {
+void PopFrontQueue(Queue *queue)
+{
 	if (queue->len == 0)
 		return;
-	
+
 	for (size_t i = 0; i < 2; i++)
 		queue->numbers[i] = queue->numbers[i + 1];
-	
+
 	queue->len--;
 	CloseSevenSegment();
 }
 
-void ClearQueue(Queue* queue) {
-	*queue = (Queue){{ 0 }, 0 };
+void ClearQueue(Queue *queue)
+{
+	*queue = (Queue){{0}, 0};
 	CloseSevenSegment();
 }
 
-void ShowQueue(Queue* queue) {
-	for (size_t i = 0; i < queue->len; i++) {
+void ShowQueue(Queue *queue)
+{
+	for (size_t i = 0; i < queue->len; i++)
+	{
 		CloseSevenSegment();
 		ShowSevenSegment(i, queue->numbers[i]);
 		CLK_SysTickDelay(5000);
 	}
 }
 
-static Queue queue = {{ 0 }, 0};
+static Queue queue = {{0}, 0};
 
-void Execute(uint32_t key) {
-	switch (key) {
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-		case 6: {
-			PushQueue(&queue, key);
-			break;
-		}
-		case 7: {
-			PopFrontQueue(&queue);
-			break;
-		}
-		case 8: {
-			ClearQueue(&queue);
-			break;
-		}
+void Execute(uint32_t key)
+{
+	switch (key)
+	{
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+	case 6:
+	{
+		PushQueue(&queue, key);
+		break;
+	}
+	case 7:
+	{
+		PopFrontQueue(&queue);
+		break;
+	}
+	case 8:
+	{
+		ClearQueue(&queue);
+		break;
+	}
 	}
 }
 
 int main(void)
 {
-  	SYS_Init();
+	SYS_Init();
 	OpenKeyPad();
 	OpenSevenSegment();
 	Init_GPIO();
-	
-	while (1) {
+
+	while (1)
+	{
 		ShowQueue(&queue);
 		KeyPadRisingEdge(Execute);
 	}
