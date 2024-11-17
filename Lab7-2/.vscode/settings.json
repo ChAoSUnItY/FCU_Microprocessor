@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "nuc100series.h": "c",
+        "math.h": "c"
+    }
+}

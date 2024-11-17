@@ -7,10 +7,10 @@
 
   <Targets>
     <Target>
-      <TargetName>Sample</TargetName>
+      <TargetName>LCD</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060422::V5.06 update 4 (build 422)::ARMCC</pCCUsed>
+      <pCCUsed>5060750::V5.06 update 6 (build 750)::.\ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -47,7 +47,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\obj\</OutputDirectory>
-          <OutputName>Sample</OutputName>
+          <OutputName>LCD</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -224,6 +224,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -390,7 +391,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -442,9 +443,24 @@
               <FilePath>..\Library\StdDriver\src\clk.c</FilePath>
             </File>
             <File>
-              <FileName>uart.c</FileName>
+              <FileName>gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Library\StdDriver\src\uart.c</FilePath>
+              <FilePath>..\Library\StdDriver\src\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>Scankey.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Library\Nu-LB-NUC140\Source\Scankey.c</FilePath>
+            </File>
+            <File>
+              <FileName>Seven_Segment.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Library\Nu-LB-NUC140\Source\Seven_Segment.c</FilePath>
+            </File>
+            <File>
+              <FileName>sys.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Library\StdDriver\src\sys.c</FilePath>
             </File>
             <File>
               <FileName>spi.c</FileName>
@@ -452,9 +468,9 @@
               <FilePath>..\Library\StdDriver\src\spi.c</FilePath>
             </File>
             <File>
-              <FileName>gpio.c</FileName>
+              <FileName>uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Library\StdDriver\src\gpio.c</FilePath>
+              <FilePath>..\Library\StdDriver\src\uart.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -481,15 +497,25 @@
               <FileType>1</FileType>
               <FilePath>..\Library\Nu-LB-NUC140\Source\Scankey.c</FilePath>
             </File>
-            <File>
-              <FileName>Seven_Segment.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Library\Nu-LB-NUC140\Source\Seven_Segment.c</FilePath>
-            </File>
           </Files>
         </Group>
       </Groups>
     </Target>
   </Targets>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>&lt;Project Info&gt;</LayName>
+        <LayDesc></LayDesc>
+        <LayUrl></LayUrl>
+        <LayKeys></LayKeys>
+        <LayCat></LayCat>
+        <LayLic></LayLic>
+        <LayTarg>0</LayTarg>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>
