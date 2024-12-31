@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "nuc100series.h": "c",
+        "math.h": "c",
+        "iosfwd": "c",
+        "Ascii_Table.C": "cpp",
+        "scankey.h": "c"
+    }
+}
